@@ -1,0 +1,14 @@
+class Banque:
+    def __init__(self, solde):
+        self.solde = solde
+
+    def voir_solde(self):
+        return self.solde
+
+
+# Création d'une instance de la classe Banque avec un solde initial de 1000
+banque = Banque(1000)
+
+# Appel de la méthode voir_solde pour afficher le solde
+solde = banque.voir_solde()
+print("Votre solde actuel est de :", solde)

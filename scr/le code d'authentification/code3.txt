@@ -1,0 +1,30 @@
+class Utilisateur:
+    def __init__(self, nom_utilisateur, mot_de_passe):
+        self.nom_utilisateur = nom_utilisateur
+        self.mot_de_passe = mot_de_passe
+
+class Banque:
+    def __init__(self):
+        self.utilisateurs = []
+
+    def ajouter_utilisateur(self, nom_utilisateur, mot_de_passe):
+        nouvel_utilisateur = Utilisateur(nom_utilisateur, mot_de_passe)
+        self.utilisateurs.append(nouvel_utilisateur)
+
+    def authentifier_utilisateur(self, nom_utilisateur, mot_de_passe):
+        for utilisateur in self.utilisateurs:
+            if utilisateur.nom_utilisateur == nom_utilisateur and utilisateur.mot_de_passe == mot_de_passe:
+                return True
+        return False
+
+# Exemple d'utilisation
+banque = Banque()
+banque.ajouter_utilisateur("john_doe", "password123")
+
+nom_utilisateur = input("Nom d'utilisateur : ")
+mot_de_passe = input("Mot de passe : ")
+
+if banque.authentifier_utilisateur(nom_utilisateur, mot_de_passe):
+    print("Authentification réussie")
+else:
+    print("Authentification échouée")

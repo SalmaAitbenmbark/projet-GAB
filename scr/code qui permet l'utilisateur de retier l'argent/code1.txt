@@ -1,0 +1,20 @@
+class BankAccount:
+    def __init__(self, balance):
+        self.balance = balance
+    
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+            return amount
+        else:
+            return "Fonds insuffisants."
+
+# Exemple d'utilisation
+account = BankAccount(1000)  # Crée un compte avec un solde de 1000 euros
+amount_to_withdraw = 500
+
+withdrawn_amount = account.withdraw(amount_to_withdraw)
+if isinstance(withdrawn_amount, str):
+    print(withdrawn_amount)  # Affiche "Fonds insuffisants."
+else:
+    print(f"Retrait réussi. Montant retiré : {withdrawn_amount} euros. Nouveau solde : {account.balance} euros.")
